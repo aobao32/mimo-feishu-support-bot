@@ -1,0 +1,28 @@
+[project]
+name = "mimo-feishu-agent"
+version = "0.1.0"
+description = "基于 Strands Agents SDK + MiMo-V2-Flash 的飞书 Kiro 技术支持 Agent"
+requires-python = ">=3.10"
+dependencies = [
+    "strands-agents[openai]",
+    "lark-oapi",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "hypothesis",
+    "pytest-mock",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
